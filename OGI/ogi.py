@@ -1,5 +1,7 @@
+import sys
 import numpy as np
 import pandas as pd
+
 
 def solve_quadratic_equation(a, b, c):
     """ 2次方程式を解く  """
@@ -9,7 +11,8 @@ def solve_quadratic_equation(a, b, c):
 
     return x_1, x_2
 
-def coord_descent(weight,matrix,index):
+
+def coord_descent(weight, matrix, index):
     '''
     matrix: numpy array (n x n)
     weight: numpy array (n x 1)
@@ -20,7 +23,7 @@ def coord_descent(weight,matrix,index):
     a = matrix[i][i]
     b = s
     c = -1
-    wi, _ = solve_quadratic_equation(a,b,c)
+    wi, _ = solve_quadratic_equation(a, b, c)
     assert wi > 0
     weight[i][0] = wi
     return weight
@@ -34,13 +37,13 @@ def ogi_weight(data, is_csv=False):
         data = pd.read_csv(data).values.T
     print("Data matrix:")
     print(data)
-    
-    covar = np.cov(data, bias=True) #dxd
+
+    covar = np.cov(data, bias=True)  # dxd
     print("Covariance matrix:")
     print(covar)
 
     d = len(data)
-    weight = np.ones((d,1))
+    weight = np.ones((d, 1))
     k = 0
     while True:
         tmp = weight.copy()
@@ -49,7 +52,7 @@ def ogi_weight(data, is_csv=False):
         print("Current Weight")
         print(weight)
         for i in range(d):
-            weight = coord_descent(weight,covar,i)
+            weight = coord_descent(weight, covar, i)
         if abs(np.sum(tmp-weight)) < 1e-5:
             print("Final weight")
             print(weight)
@@ -64,5 +67,6 @@ def ogi_weight(data, is_csv=False):
 
 
 if __name__ == "__main__":
-    data = "data/sample.csv"
+    # print(sys.argv)
+    data = sys.argv[1]
     ogi_weight(data, True)

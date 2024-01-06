@@ -11,7 +11,7 @@ pip install git@github.com:stardust-coder/objective-general-index.git
 ```python
 from OGI import *
 data = 'data/sample.csv'
-weights, vectors, OGI = ogi_weight(data, is_csv=True)
+weights, vectors, ogi = ogi_weight(data, is_csv=True)
 ```
 
 ### Citations
