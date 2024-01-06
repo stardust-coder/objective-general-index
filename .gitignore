@@ -1,0 +1,5 @@
+OGI/__pycache__
+data/*
+results/*
+analysis.ipynb
+.DS_Store
