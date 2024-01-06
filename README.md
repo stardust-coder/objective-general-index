@@ -14,7 +14,10 @@ data = 'data/sample.csv'
 weights, vectors, ogi = ogi_weight(data, is_csv=True)
 ```
 
-### Citations
+### Reference
+
+If you use this algorithm, please cite the article:
+
 ```
 Tomonari Sei,
 An objective general index for multivariate ordered data,
@@ -22,4 +25,17 @@ Journal of Multivariate Analysis,
 Volume 147,
 2016,
 Pages 247-264,
+```
+
+### How to cite
+
+In BibTeX format
+```
+@software{ogi-in-python,
+  author = {Sukeda, Issey},
+  title = {{Objective General Index implementation in Python}},
+  url = {https://github.com/stardust-coder/objective-general-index},
+  version = {1.0.0},
+  date = {2024-01-06},
+}
 ```
