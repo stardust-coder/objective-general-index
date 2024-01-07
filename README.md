@@ -14,6 +14,9 @@ data = 'data/sample.csv'
 weights, vectors, ogi = ogi_weight(data, is_csv=True)
 ```
 
+
+If you are looking for R package, see [Tomonari Sei and Masaki Hamada](https://cran.r-project.org/package=OGI).
+
 ### Reference
 
 If you use this algorithm, please cite the article:
